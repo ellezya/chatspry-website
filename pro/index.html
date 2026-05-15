@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Pro — ChatSpry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #12151E; --surface: #1E2438; --surface2: #28304A; --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.16); --text: #F0EEF8; --text2: #8888AA; --text3: #555570; --cherry: #C42820; --cherry2: #E06860; --lemon: #E0B84A; --green2: #58E098; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; font-weight: 300; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 400; }
+    .hero { text-align: center; padding: 80px 48px 48px; max-width: 640px; margin: 0 auto; }
+    .hero-badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lemon); border: 1px solid rgba(224,184,74,0.3); padding: 4px 14px; border-radius: 20px; margin-bottom: 24px; }
+    .hero h1 { font-size: 44px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.15; }
+    .hero p { font-size: 17px; color: var(--text2); line-height: 1.7; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin: 48px auto; padding: 0 48px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+    .card.featured { border-color: var(--cherry); background: linear-gradient(145deg, var(--surface) 0%, rgba(196,40,32,0.1) 100%); position: relative; }
+    .featured-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--cherry); color: #fff; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+    .card-tier { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+    .card.featured .card-tier { color: var(--cherry2); }
+    .card-price { font-size: 40px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .card-price span { font-size: 16px; font-weight: 300; color: var(--text2); }
+    .card-desc { font-size: 13px; color: var(--text2); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .card-features { list-style: none; margin-bottom: 28px; }
+    .card-features li { font-size: 14px; color: var(--text2); padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .card-features li:last-child { border-bottom: none; }
+    .check { color: var(--text3); font-family: 'DM Mono', monospace; font-size: 12px; flex-shrink: 0; }
+    .card.featured .check { color: var(--green2); }
+    .btn-card { display: block; width: 100%; padding: 13px; border-radius: 8px; text-align: center; font-size: 14px; font-weight: 400; transition: all 0.15s; cursor: pointer; border: 1px solid var(--border2); color: var(--text2); }
+    .btn-card:hover { border-color: var(--text2); color: var(--text); }
+    .btn-card.featured { background: var(--cherry); color: #fff; border-color: var(--cherry); }
+    .btn-card.featured:hover { background: var(--cherry2); }
+    .guarantee { text-align: center; padding: 0 48px 48px; max-width: 760px; margin: 0 auto; }
+    .guarantee p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 0.04em; }
+    .faq { max-width: 600px; margin: 0 auto; padding: 0 48px 80px; }
+    .faq h2 { font-size: 24px; font-weight: 500; margin-bottom: 32px; text-align: center; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-size: 15px; font-weight: 400; margin-bottom: 10px; }
+    .faq-a { font-size: 14px; color: var(--text2); line-height: 1.65; }
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text2); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="22" height="26" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#E0B84A"/><polygon points="38,22 38,106 64,86 90,106 90,22" fill="#1E2438"/></svg>
+      ChatSpry
+    </a>
+  </nav>
+  <div class="hero">
+    <div class="hero-badge">Pricing</div>
+    <h1>Save every conversation.<br />Lose nothing.</h1>
+    <p>Start free. Upgrade to Pro when you are ready for unlimited saves and Google Drive sync.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-tier">Free</div>
+      <div class="card-price">$0</div>
+      <div class="card-desc">No credit card. No account required.</div>
+      <ul class="card-features">
+        <li><span class="check">—</span> 10 saves per month</li>
+        <li><span class="check">—</span> Download to device</li>
+        <li><span class="check">—</span> Markdown, Text, JSON</li>
+        <li><span class="check">—</span> Claude, ChatGPT, Gemini</li>
+        <li><span class="check">—</span> Copy to clipboard</li>
+      </ul>
+      <a href="https://chromewebstore.google.com" class="btn-card">Add to Chrome</a>
+    </div>
+    <div class="card featured">
+      <div class="featured-tag">Most popular</div>
+      <div class="card-tier">Pro</div>
+      <div class="card-price">$5.99 <span>/ month</span></div>
+      <div class="card-desc">For anyone who uses AI for real work.</div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Unlimited saves</li>
+        <li><span class="check">✓</span> Google Drive sync</li>
+        <li><span class="check">✓</span> Automatic folder organization</li>
+        <li><span class="check">✓</span> Project-aware filing</li>
+        <li><span class="check">✓</span> All three AI platforms</li>
+      </ul>
+      <a href="https://chatspry.lemonsqueezy.com/checkout" class="btn-card featured">Get Pro — $5.99/month</a>
+    </div>
+  </div>
+  <div class="guarantee">
+    <p>Questions? Email us at hello@chatspry.com — we respond within 24 hours.</p>
+  </div>
+  <div class="faq">
+    <h2>Common questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What happens when I hit the free tier limit?</div>
+      <div class="faq-a">You will see a message letting you know you have used all 10 free saves for the month. Your saved chats stay safe. The counter resets at the start of each month.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I cancel my Pro subscription?</div>
+      <div class="faq-a">Yes — cancel any time from your Lemon Squeezy account page. No questions asked, no cancellation fees.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does ChatSpry store my conversations?</div>
+      <div class="faq-a">No. ChatSpry reads your chat from the page and sends it directly to your Google Drive or your device. We never store your conversation content on our servers.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Which AI platforms are supported?</div>
+      <div class="faq-a">Claude (claude.ai), ChatGPT (chatgpt.com), and Gemini (gemini.google.com). All three are included on both Free and Pro.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a Google account?</div>
+      <div class="faq-a">Only if you want to save to Google Drive. You can use ChatSpry to download files to your device or copy to clipboard without connecting Google at all.</div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-copy">© 2026 ChatSpry</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="mailto:hello@chatspry.com">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

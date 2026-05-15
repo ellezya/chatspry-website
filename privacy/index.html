@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ChatSpry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #12151E; --surface: #1E2438; --border: rgba(255,255,255,0.08); --text: #F0EEF8; --text2: #8888AA; --text3: #555570; --lemon: #E0B84A; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; font-weight: 300; -webkit-font-smoothing: antialiased; line-height: 1.7; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 400; text-decoration: none; color: var(--text); }
+    .content { max-width: 680px; margin: 0 auto; padding: 64px 48px 96px; }
+    h1 { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .updated { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 0.06em; margin-bottom: 48px; }
+    h2 { font-size: 18px; font-weight: 500; margin-top: 40px; margin-bottom: 12px; }
+    p { font-size: 15px; color: var(--text2); margin-bottom: 16px; line-height: 1.75; }
+    ul { margin: 0 0 16px 0; padding: 0; list-style: none; }
+    ul li { font-size: 15px; color: var(--text2); padding: 5px 0 5px 20px; position: relative; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--text3); font-family: 'DM Mono', monospace; font-size: 12px; }
+    a { color: var(--lemon); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="22" height="26" viewBox="0 0 128 128"><rect width="128" height="128" rx="24" fill="#E0B84A"/><polygon points="38,22 38,106 64,86 90,106 90,22" fill="#1E2438"/></svg>
+      ChatSpry
+    </a>
+  </nav>
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: May 15, 2026</div>
+    <h2>Overview</h2>
+    <p>ChatSpry is a Chrome extension that captures and saves AI chat sessions from Claude, ChatGPT, and Gemini. This privacy policy explains what data we access, how we use it, and what we never do with it.</p>
+    <hr />
+    <h2>What we access</h2>
+    <p>ChatSpry reads the text content of AI chat sessions on claude.ai, chatgpt.com, and gemini.google.com when you explicitly click the save button. We do not read any other browser content, tabs, or pages.</p>
+    <h2>What we store</h2>
+    <p>Locally: ChatSpry stores up to 50 chat records in your browser local storage (chrome.storage.local). This data never leaves your device unless you choose to save to Google Drive.</p>
+    <p>Google Drive: If you connect Google Drive, ChatSpry uploads your saved chat as a file to your personal Google Drive account. ChatSpry only has access to files it creates — it cannot read, modify, or delete any other files in your Drive.</p>
+    <h2>What we never do</h2>
+    <ul>
+      <li>We never sell your data to any third party</li>
+      <li>We never read your chat content without your explicit action</li>
+      <li>We never store your chat content on our servers</li>
+      <li>We never access your Google Drive files other than those ChatSpry creates</li>
+      <li>We never run in the background or monitor your browsing activity</li>
+    </ul>
+    <h2>Google OAuth</h2>
+    <p>ChatSpry uses Google OAuth 2.0 to connect to Google Drive. We request only the minimum scope required: drive.file, which limits access exclusively to files created by ChatSpry. You can revoke this access at any time from your Google account settings at <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.</p>
+    <h2>Save count</h2>
+    <p>ChatSpry stores a monthly save count in your browser local storage to enforce the free tier limit. This number never leaves your device.</p>
+    <h2>License keys</h2>
+    <p>If you purchase Pro, your license key is stored locally in your browser. License validation is performed directly with our payment processor (Lemon Squeezy). We do not store your payment information.</p>
+    <hr />
+    <h2>Contact</h2>
+    <p>If you have any questions about this privacy policy, contact us at <a href="mailto:hello@chatspry.com">hello@chatspry.com</a>.</p>
+    <h2>Changes</h2>
+    <p>We may update this policy as the product evolves. The date at the top of this page reflects the most recent update.</p>
+  </div>
+  <footer>
+    <div class="footer-copy">© 2026 ChatSpry</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/pro">Pricing</a>
+      <a href="mailto:hello@chatspry.com">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
